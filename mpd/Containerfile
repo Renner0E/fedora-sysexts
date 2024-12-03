@@ -1,0 +1,9 @@
+FROM baseimage
+
+RUN dnf install -y --enable-repo=rpmfusion-free \
+    mpd \
+    mpc \
+    ncmpcpp \
+    mpdris2 \
+    && \
+    dnf clean all
