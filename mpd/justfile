@@ -1,7 +1,10 @@
 name := "mpd"
+# rpm -E %fedora Doesn't work when Host Fedora Version != Toolbox Build Environment for whatever reason
+pre_commands:= "dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+enable_repos := "rpmfusion-free"
 packages := "
-    mpc
     mpd
+    mpc
     mpdris2
     ncmpcpp
 "

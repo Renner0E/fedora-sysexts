@@ -223,6 +223,14 @@ jobs:
           just build ${IMAGE}
           mv "${SYSEXT}"*".raw" "../artifacts/"
 
+      - name: "Build sysext: mpd"
+        env:
+          SYSEXT: mpd
+        run: |
+          cd "${SYSEXT}"
+          just build ${IMAGE}
+          mv "${SYSEXT}"*".raw" "../artifacts/"
+
       - name: "Build sysext: vim"
         env:
           SYSEXT: vim
