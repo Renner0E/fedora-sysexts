@@ -1,0 +1,17 @@
+FROM baseimage
+# Build fails because of %fedora, when Host Fedora Version != Toolbox Build Environment for whatever reason
+
+# Enable RPMFusion
+RUN dnf install -y \
+    "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
+    "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" \
+    && \
+    dnf clean all
+
+RUN dnf install -y \
+    mpd \
+    mpc \
+    ncmpcpp \
+    mpdris2 \
+    && \
+    dnf clean all
